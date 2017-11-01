@@ -1,6 +1,6 @@
 ﻿<?php
-	include("professor.php");
 	include("bd.php");
+	include("professor.php");
 	include("sala.php");
 	
 	//$professor = new professor("", "Lucas Amaral", "maiara@gmail.com", "000", 'arielsoarescosta');
@@ -17,7 +17,6 @@
 	
 	echo json_encode( $bd->logout( ) );
 	
-	echo json_encode( $_SESSION['id_user'] );
 	
 	//echo json_encode( $bd->adicionar_reserva( $professor, '6' ));
 	

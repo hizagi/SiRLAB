@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+header("Content-Type: application/json; charset=utf-8", true);
 
 class bd{
 	
@@ -7,14 +8,16 @@ class bd{
 	private $usuario;
 	private $senha;
 	public $CON;
-	
+	public $resposta = array();
+
 	public function login( $email, $senha ){
 		
 		$SQL = "Select * from usuarios where email='" . $email . "' and senha='" . md5( $senha ) . "'";
 		$RES = $this->CON->query($SQL);
-				
+			
 		if( $RES->rowCount() <= 0){
-			$retorno = "Usuário ou senha incorretos";
+			$resposta['status']="error";
+			return $resposta;
 		} else {
 			
 			$row = $RES->fetch(PDO::FETCH_ASSOC);
@@ -25,8 +28,10 @@ class bd{
 			$_SESSION['name_user'] = $row['nome'];
 			$_SESSION['email_user'] = $row['email'];
 			$_SESSION['matricula_user'] = $row['matricula'];
-					
-			return true;			
+			$_SESSION['tipo_user'] = $row['tipo'];
+			
+			$resposta['status']="ok";
+			return $resposta;			
 		}
 	}
 	

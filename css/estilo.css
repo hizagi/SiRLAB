@@ -1,0 +1,95 @@
+
+
+body,main{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#menu_nav{
+	background-color: #e93136;
+}
+
+#sair{
+	padding: 11px;
+	cursor: pointer;
+}
+
+#img_menu{
+	cursor: pointer;
+	padding: 11px;
+}
+
+#uesb_menu{
+	height: 70px;
+}
+
+#menu{
+	background-color: #302d65;
+	width: 0px;
+	height: 100%;
+	z-index: 9999999;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#menu ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#menu li{	
+	display: none;
+	width: 0px;
+	border: 1px solid #918fad;
+	padding-left: auto;
+	padding: 20px 0px 20px 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+#menu li a{
+	color: white;
+	text-decoration: none;
+}
+
+#logo_sirlab_central{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+}
+
+.home-logo{
+	margin-top: -250px;
+}
+
+.login_logo{
+  margin-top: -120px;
+  display: none;
+}
+
+#form_login{
+  width:250; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -115px;
+  display: none;
+}
+
+#form_login button{
+	width: 100%;
+}
+
+button{
+	background-color: #302d65!important;
+}
+
+#form_email_cadastro{
+	width: 600px;
+	margin: auto;
+}
