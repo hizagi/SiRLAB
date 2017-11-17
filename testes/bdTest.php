@@ -30,7 +30,7 @@
 							 $this->assertInternalType('string', $bd->adicionar_professor($professor));
 							 
 							 $professor = new professor(0, "Maísa", "maisa@gmail.com", 23123, 'arielsoarescosta');
-							 //$this->assertInternalType('boolean', $bd->adicionar_professor($professor));
+							 $this->assertInternalType('string', $bd->adicionar_professor($professor));
 				}
 				
 				public function testAtualizar_professor() {
@@ -40,7 +40,7 @@
 							 $this->assertInternalType('string', $bd->atualizar_professor($professor));
 							 							 
 							 $professor = new professor(28, "Maísa", "maisa@gmail.com", 23123, 'arielsoarescosta');
-							// $this->assertInternalType('boolean', $bd->atualizar_professor($professor));
+							 $this->assertInternalType('string', $bd->atualizar_professor($professor));
 				}
 				
 				public function testRemover_professor() {
@@ -50,7 +50,7 @@
 							 $this->assertInternalType('string', $bd->remover_professor($professor));
 							 							 
 							 $professor = new professor(28, "Maísa", "maisa@gmail.com", 23123, 'arielsoarescosta');
-							// $this->assertInternalType('boolean', $bd->remover_professor($professor));
+							 $this->assertInternalType('string', $bd->remover_professor($professor));
 				}
 				
 				 public function testAdicionar_sala() {
@@ -60,7 +60,7 @@
 							 $this->assertInternalType('string', $bd->adicionar_sala($sala));
 							 							 
 							 $sala = new sala ( '21', 'sala', '30' );
-					    	// $this->assertInternalType('boolean', $bd->adicionar_sala($sala));
+					    	 $this->assertInternalType('string', $bd->adicionar_sala($sala));
 				}
 				
 				public function testAtualizar_sala() {
@@ -68,7 +68,7 @@
 							
 							//testando quando atualiza 
 					 		$sala = new sala ( '12', 'Lab', '10' );
-						//	$this->assertInternalType('boolean', $bd->atualizar_sala($sala));					 
+							$this->assertInternalType('string', $bd->atualizar_sala($sala));					 
 							
 							//testando quando não atualiza
 							$sala = new sala ( '2', 'L', '120' );
@@ -80,7 +80,7 @@
 							 
 							//testando quando remove
 					 		$sala = new sala( '12', 'Lab', '10' );
-						//	$this->assertInternalType('boolean', $bd->remover_sala($sala));
+							$this->assertInternalType('string', $bd->remover_sala($sala));
 							
 							//testando quando não remove		
 							$sala = new sala( '12', 'Lab', '10' );
@@ -93,7 +93,7 @@
 							 
 							 //adicionando horario novo
 					 		 $sala = new sala ( '12', 'Lab', '10' );
-							// $this->assertInternalType('boolean', $bd->adicionar_horario($sala, '22:00-23:00'));
+							 $this->assertInternalType('string', $bd->adicionar_horario($sala, '22:00-23:00'));
 							 		
 							//tentando adicionar um horario ja existente
 							$sala = new sala ( '14', 'sala', '30' );
@@ -105,7 +105,7 @@
 							
 							//testando quando atualiza 
 					 		$sala = new sala ( '12', 'Lab', '10' );
-						    //$this->assertInternalType('boolean', $bd->atualizar_horario($sala,'16:30-17:00', '16:00-17:00'));					 
+						    $this->assertInternalType('string', $bd->atualizar_horario($sala,'16:30-17:00', '16:00-17:00'));					 
 							
 							//testando quando não atualiza
 							$sala = new sala ( '12', 'Lab', '10' );
@@ -117,7 +117,7 @@
 							 
 							//testando quando remove
 					 		$sala = new sala( '12', 'Lab', '10' );
-						//	$this->assertInternalType('boolean', $bd->remover_horario($sala, '16:00-17:00'));
+							$this->assertInternalType('string', $bd->remover_horario($sala, '16:00-17:00'));
 							
 							//testando quando não remove		
 							$sala = new sala( '12', 'Lab', '10' );
@@ -130,7 +130,7 @@
 							
 							//adicionando nova reserva
 							$professor = new professor(0, "Lucas Amaral", "lucasamaral@gmail.com", 201211049, 'arielsoarescosta');
-							//$this->assertInternalType('boolean', $bd->adicionar_reserva($professor,'5'));
+							$this->assertInternalType('string', $bd->adicionar_reserva($professor,'5'));
 							
 							//reserva ja existente
 							$professor = new professor(0, "Lucas Amaral", "lucasamaral@gmail.com", 201211049, 'arielsoarescosta');
@@ -142,7 +142,7 @@
 							
 							//removendo reserva existente
 							$professor = new professor(0, "Lucas Amaral", "lucasamaral@gmail.com", 201211049, 'arielsoarescosta');
-							//$this->assertInternalType('boolean', $bd->remover_reserva( '5' , $professor ));
+							$this->assertInternalType('string', $bd->remover_reserva( '5' , $professor ));
 							
 							//reserva inexistente
 							$professor = new professor(0, "Lucas Amaral", "lucasamaral@gmail.com", 201211049, 'arielsoarescosta');
