@@ -1,11 +1,10 @@
 <?php
-  require_once ('/wamp64/www/composer/vendor/phpunit/phpunit/tests/Framework/TestCaseTest.php');
   use PHPUnit_Framework_TestCase as PHPUnit;
-   
-  require_once '../../src/Application/sala.php';
-   
+
+  require_once '../sala.php';
+
   class salaTest extends PHPUnit{
-                  
+
 			  //Função de teste de tipo - Compara tipo da variável Código
 			  public function testType() {
 					 		 $sala = new sala(0, "Lucas Amaral", 201211049);
@@ -21,8 +20,8 @@
 					 		 $sala = new sala(0, "Lucas Amaral", 201211049);
 							 $this->assertInternalType('int', $sala->getId());
 							 }
-			  
-			  
+
+
 	  //Função de teste de tipo - Compara tipo da variável Código
 			  public function testType1() {
 					 		 $sala = new sala(0, "Lucas Amaral", 201211049);
@@ -38,6 +37,6 @@
 					 		 $sala = new sala(0, "Lucas Amaral", 201211049);
 							 $this->assertEquals(0, $sala->getId());
 							 }
-			  
+
   }
-  ?> 
+  ?>

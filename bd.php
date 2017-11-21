@@ -34,7 +34,7 @@ class bd
             $_SESSION['email_user'] = $row['email'];
             $_SESSION['matricula_user'] = $row['matricula'];
             $_SESSION['tipo_user'] = $row['tipo'];
-            $resposta['status']="ok";
+            $resposta['status']="OK";
             return $resposta;
         }
     }
@@ -66,7 +66,7 @@ class bd
             if(!$RES) {
                 $resposta['status'] = "ERROR" . mysqli_error($this->CON);
             } else {
-                $resposta['status'] = true;
+                $resposta['status'] = "OK";
             }
 
         }
@@ -96,7 +96,7 @@ class bd
       if(!$RES) {
           $resposta['status'] = "ERROR" . mysqli_error($this->CON);
       } else {
-          $resposta['status'] = true;
+          $resposta['status'] = "OK";
           $resposta['data'] = $sala = $RES->fetchAll(PDO::FETCH_ASSOC);
       }
 
@@ -112,7 +112,7 @@ class bd
         if(!$RES) {
             $resposta['status'] = "ERROR" . mysqli_error($this->CON);
         } else {
-            $resposta['status'] = true;
+            $resposta['status'] = "OK";
         }
 
         return $resposta;
@@ -128,7 +128,7 @@ class bd
         if(!$RES) {
             $resposta['status'] = "ERROR" . mysqli_error($this->CON);
         } else {
-            $resposta['status'] = true;
+            $resposta['status'] = "OK";
         }
 
         return $resposta;
@@ -188,7 +188,7 @@ class bd
         if(!$RES) {
             $resposta['status'] = "ERROR" . mysqli_error($this->CON);
         } else {
-            $resposta['status'] = true;
+            $resposta['status'] = "OK";
         }
 
         return $resposta;
@@ -263,7 +263,7 @@ class bd
         if(!$RES) {
             $resposta['status'] = "ERROR" . mysqli_error($this->CON);
         } else {
-            $resposta['status'] = true;
+            $resposta['status'] = "OK";
         }
 
         return $resposta;
@@ -345,7 +345,10 @@ class bd
 
                 $resposta['data'] = $RES->fetchAll(PDO::FETCH_ASSOC);
                 //var_dump($resposta['data']);
-                $resposta['data'][0]['data'] = date( "d-m-Y", strtotime($resposta['data'][0]['data']) );
+                if (!empty($resposta['data'])) {
+                  # code...
+                  $resposta['data'][0]['data'] = date( "d-m-Y", strtotime($resposta['data'][0]['data']) );
+                }
                 $resposta['status'] = "OK";
 
             }
@@ -374,6 +377,7 @@ class bd
     public function getHorarios( $id, $tipo, $dia_semana, $data)
     {
         $data = date( "Y-m-d", strtotime($data) );
+        $resposta = array();
         switch( $tipo ){
         case 'professor':
 
