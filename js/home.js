@@ -1,5 +1,5 @@
 $(function(){
 
-	$('#logo_sirlab_central').animate({'margin-top':'-120px'}, 1000);
+	$('#logo_sirlab_central').animate({'margin-top':'-70px'}, 1000);
 
 });

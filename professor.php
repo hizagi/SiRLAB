@@ -1,12 +1,11 @@
 ﻿<?php
 
 class Professor{
-    private $id;
-    private $nome;
+  private $id;
+  private $nome;
 	private $email;
 	private $matricula;
-	private $bd;
-	
+
 	public function getId(){
 		return $this->id;
 	}
@@ -38,7 +37,7 @@ class Professor{
 	public function setMatricula($matricula){
 		$this->matricula = $matricula;
 	}
-	
+
 	public function getSenha(){
 		return $this->senha;
 	}
@@ -46,7 +45,7 @@ class Professor{
 	public function setSenha($senha){
 		$this->senha = $senha;
 	}
-	
+
 	// Método construtor da classe.
 	function __construct($id, $nome, $email, $matricula, $senha) {
 		$this->id = $id;
@@ -54,7 +53,7 @@ class Professor{
 		$this->email = $email;
 		$this->matricula = $matricula;
 		$this->senha = $senha;
-	}	
-}   
+	}
+}
 
 ?>

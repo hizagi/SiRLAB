@@ -1,36 +1,66 @@
 <!DOCTYPE>
 <html>
 <head>
+    <meta charset="utf-8">
+
 	<title>SiRLAB</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 
 	<script type="text/javascript" src="js/tether.min.js"></script>
+	<script type="text/javascript" src="js/popper.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mask.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
 		<nav class="navbar" id="menu_nav">
-			<div class="container">
-  				<div class="row">
-					  <div class="col col-9">
-					  	
-					    <img id="img_menu" src="imagens/icones/menu_maior.png">
-					  </div>
-					  
-					  <div class="col col-2">
-					  	
-					   	<img class="img-responsive" id="uesb_menu" src="imagens/uesb.png">
-					  </div>
-					  
-					  <div class="col col-1">
-					  	
-					   	<img class="img-responsive" id="sair" src="imagens/icones/sair_maior.png">
-					  </div>	
+            <a class="navbar-brand" href="#">
+      					    <img id="img_menu" class="d-inline-block align-top" src="imagens/icones/menu_maior.png" width="50px" height="50px">
+            </a>
 
-			</div>
-			</div>	
-				
+            <div class="">
+      					   	<img class="mr-auto" id="uesb_menu" src="imagens/uesb.png" height="70px">
+
+      					   	<img class="mr-auto" id="sair" src="imagens/icones/sair_maior.png" width="70px" height="70px">
+           </div>
+
+
 		</nav>
-	<main class="container-fluid">
+	<main class="container">
+	<div id="menu">
+			<?php
+            $arquivo_atual = basename($_SERVER["REQUEST_URI"]);
+   if (isset($_SESSION['tipo_user'])) {
+       if($_SESSION['tipo_user']==0) {
+        ?>
+      <ul>
+       <li><a href="home.php">Home</a></li>
+       <li><a href="gerencia_lab.php">Gerenciar de Laboratórios</a></li>
+       <li><a href="cadastro_email.php">Cadastrar Professor</a></li>
+      </ul>
+        <?php
+} else if ($_SESSION['tipo_user']==1) {
+
+                ?>
+                       <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="atualizar.php">Atualizar Cadastro</a></li>
+                <li><a href="reserva.php">Reservar Laboratório</a></li>
+                       </ul>
+                <?php
+        }else{
+            if ($arquivo_atual != "login.php") {
+                header("Location: login.php");
+                die();
+            }
+        }
+} else {
+        if ($arquivo_atual != "login.php") {
+            header("Location: login.php");
+            die();
+        }
+    }
+        ?>
+        </div>

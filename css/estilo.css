@@ -40,7 +40,7 @@ body,main{
 	margin: 0;
 }
 
-#menu li{	
+#menu li{
 	display: none;
 	width: 0px;
 	border: 1px solid #918fad;
@@ -63,7 +63,7 @@ body,main{
 }
 
 .home-logo{
-	margin-top: -250px;
+	margin-top: -200px;
 }
 
 .login_logo{
@@ -72,7 +72,7 @@ body,main{
 }
 
 #form_login{
-  width:250; 
+  width:250;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -92,4 +92,124 @@ button{
 #form_email_cadastro{
 	width: 600px;
 	margin: auto;
+}
+
+#lista_lab{
+	list-style: none;
+	width: 900px;
+	margin: auto;
+}
+
+#lista_lab li{
+	margin-top: 20px;
+	cursor: pointer;
+	font-weight: bold;
+	border-bottom: 2px solid #cfcedb;
+	text-align: center;
+	font-size: 30px;
+}
+
+#lista_lab a{
+		color: #4b4b4e;
+		text-decoration: none;
+}
+
+#add_lab{
+	height: 90px;
+	cursor: pointer;
+	position: fixed;
+	left: 1128px;
+	margin-top: 20px;
+}
+
+#pop-up{
+	display:none;
+	width: 400px;
+	border: 1px solid #918fad;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -300px;
+	background-color: white;
+}
+
+#pop-up h2{
+	padding-top: 15px;
+	text-align: center;
+}
+
+#pop-up form{
+	padding: 15px;
+}
+
+#pop-up button{
+	width: 100%;
+}
+
+#msg_cadastro_lab{
+	display: none;
+	margin: 0;
+}
+
+.icon_delete{
+	height: 35px;
+	float: right;
+	margin-right: 10px;
+}
+
+.controle_horario{
+	float: left;
+	margin-top: 95px;
+}
+
+#add_horario,#remove_horario{
+	height: 50px;
+	cursor: pointer;
+}
+#pop-up-add-horario{
+	display: none;
+	width: 400px;
+	border: 1px solid #918fad;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -200px;
+	background-color: white;
+	z-index: 99999;
+}
+
+#pop-up-add-horario h2{
+	padding-top: 15px;
+	text-align: center;
+}
+
+#pop-up-add-horario form{
+	padding: 15px;
+}
+
+#pop-up-add-horario button{
+	width: 100%;
+}
+
+.item_horario{
+	cursor: pointer;
+}
+
+.tabela_reserva{
+	float: right;
+}
+
+.tabela_reserva tr img{
+	padding-bottom: 5px;
+	cursor: pointer;
+}
+
+.reservas_professor_form{
+	margin: 10px 0 10px 65px;
+}
+
+.hidden{
+	display: none;
 }

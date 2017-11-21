@@ -11,7 +11,7 @@ $( function(){
 
 	$(document).on('click', function(event) {
 		/* Act on the event */
-		if(event.target.id!=null&&event.target.id!="menu"&& $("#menu").width()==300){
+		if(event.target.id!=null&&event.target.id!="menu" && $("#menu").width()==300){
 			$('#menu').animate({width:'0px'},500);
 			$('#menu li').animate({width:'0px'},500,function() {
 				// body...

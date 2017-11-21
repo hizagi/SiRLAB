@@ -2,10 +2,10 @@ $(function(){
 
 	$('#logo_sirlab_central').fadeIn({queue: false, duration: 'slow'});
 
-	$('#logo_sirlab_central').animate({'margin-top':'-250px'}, 1000,function() {
+	$('#logo_sirlab_central').animate({'margin-top':'-200px'}, 1000,function() {
 			$('#form_login').fadeIn({queue: false, duration: 'slow'});
 			// body...
-			$('#form_login').animate({'margin-top':'-114px'}, 500);
+			$('#form_login').animate({'margin-top':'-64px'}, 500);
 	});
 
 
