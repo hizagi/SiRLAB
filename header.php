@@ -37,7 +37,7 @@
         ?>
       <ul>
        <li><a href="home.php">Home</a></li>
-       <li><a href="gerencia_lab.php">Gerenciar de Laboratórios</a></li>
+       <li><a href="gerencia_lab.php">Gerencia de Laboratórios</a></li>
        <li><a href="cadastro_email.php">Cadastrar Professor</a></li>
       </ul>
         <?php
@@ -46,8 +46,8 @@
                 ?>
                        <ul>
                 <li><a href="home.php">Home</a></li>
-                <li><a href="atualizar.php">Atualizar Cadastro</a></li>
-                <li><a href="reserva.php">Reservar Laboratório</a></li>
+                <li><a href="atualizar_cadastro.php">Atualizar Cadastro</a></li>
+                <li><a href="reserva.php">Reservas</a></li>
                        </ul>
                 <?php
         }else{
@@ -57,7 +57,7 @@
             }
         }
 } else {
-        if ($arquivo_atual != "login.php") {
+        if ($arquivo_atual != "login.php" && strpos($arquivo_atual, 'cadastro.php') === false) {
             header("Location: login.php");
             die();
         }

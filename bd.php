@@ -49,7 +49,19 @@ class bd
         }
     }
 
-    public function adicionar_professor( $professor )
+    public function checar_codigo($codigo)
+    {
+      $SQL = "Select * from cod_cadastro where codigo='" . $codigo . "'";
+      $RES = $this->CON->query($SQL);
+
+      if($RES->rowCount() >= 1) {
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+    public function adicionar_professor( $professor,$codigo )
     {
 
         $SQL = "Select * from usuarios where email='" . $professor->getEmail() . "' or matricula='" . $professor->getMatricula() . "'";
@@ -66,6 +78,8 @@ class bd
             if(!$RES) {
                 $resposta['status'] = "ERROR" . mysqli_error($this->CON);
             } else {
+                $SQL = "DELETE FROM cod_cadastro where codigo='" . $codigo . "'";
+                $RES = $this->CON->query($SQL);
                 $resposta['status'] = "OK";
             }
 
@@ -87,7 +101,7 @@ class bd
         ";
         $sqlarray = array($sala->getId());
       }else {
-        $SQL = "SELECT * FROM u usuarios where tipo = 1";
+        $SQL = "SELECT * FROM usuarios where tipo = 1";
         $sqlarray = array();
       }
       $RES = $this->CON->prepare($SQL);
@@ -106,8 +120,22 @@ class bd
     public function atualizar_professor( $professor )
     {
 
-        $SQL = "UPDATE usuarios set nome='" . $professor->getNome() . "', email='" . $professor->getEmail() . "', matricula='" . $professor->getMatricula() . "', senha='" . $professor->getSenha() . "' where id='" . $professor->getId() . "'";
+       if ($professor->getNome()!==null) {
+        $SQL = "UPDATE usuarios set nome='" . $professor->getNome() . "' where id='" . $professor->getId() . "'";
         $RES = $this->CON->query($SQL);
+       }
+       if ($professor->getSenha()!==null) {
+        $SQL = "UPDATE usuarios set senha='" . md5($professor->getSenha()) . "' where id='" . $professor->getId() . "'";
+        $RES = $this->CON->query($SQL);
+       }
+       if ($professor->getMatricula()!==null) {
+        $SQL = "UPDATE usuarios set matricula='" . $professor->getMatricula() . "' where id='" . $professor->getId() . "'";
+        $RES = $this->CON->query($SQL);
+       }
+       if ($professor->getEmail()!==null) {
+        $SQL = "UPDATE usuarios set email='" . $professor->getEmail() . "' where id='" . $professor->getId() . "'";
+        $RES = $this->CON->query($SQL);
+       }
 
         if(!$RES) {
             $resposta['status'] = "ERROR" . mysqli_error($this->CON);
@@ -214,7 +242,7 @@ class bd
     public function adicionar_horario( $sala, $horario )
     {
 
-        $SQL = "Select * from horarios_sala where id_sala=? and dia=? and (  (horario_inicio =? and horario_fim = ?) or (  (horario_fim >? and horario_fim <?) or (horario_inicio >? and horario_inicio <?) ) )";
+        $SQL = "Select * from horarios_sala where id_sala=? and dia=? and (  (horario_inicio =? and horario_fim = ?) or (  (horario_fim >? and horario_inicio <?) or (horario_fim >? and horario_inicio >?) ) )";
 
         $RES = $this->CON->prepare($SQL);
         $sqlarray = array($sala->getId(),$horario['dia_lab'],$horario['hora_inicial_lab'],$horario['hora_final_lab'],$horario['hora_inicial_lab'],$horario['hora_final_lab'],$horario['hora_inicial_lab'],$horario['hora_final_lab']);

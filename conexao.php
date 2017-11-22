@@ -36,6 +36,10 @@ if (!empty($_POST)) {
       echo json_encode( $bd->remover_reserva( $_POST['deletar_reserva'],new professor(  $_SESSION['id_user'],$_SESSION['name_user'],$_SESSION['email_user'],$_SESSION['matricula_user'],null ) ) );
     }elseif ( isset($_POST['sel_prof_res']) && isset($_POST['sel_hora_res']) ) {
       echo json_encode( $bd->remover_reserva($_POST['sel_hora_res'],new professor($_POST['sel_prof_res'],null,null,null,null)) );
+    }elseif ( isset($_POST['cadastro_professor']) ) {
+      echo json_encode( $bd->adicionar_professor(new professor(null,$_POST['nome_prof'],$_POST['mail_prof'],$_POST['matricula_prof'],$_POST['senha_prof']),$_POST['codigo']) );
+    }elseif ( isset($_POST['atualizar_cadastro']) ) {
+      echo json_encode( $bd->atualizar_professor(new professor($_POST['id'],$_POST['nome_prof'],$_POST['mail_prof'],$_POST['matricula_prof'],$_POST['senha_prof'])) );
     }
 
 }else{

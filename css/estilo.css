@@ -213,3 +213,21 @@ button{
 .hidden{
 	display: none;
 }
+
+.form_cadastro,.form_cadastro h2{
+	margin: auto;
+	text-align: center;
+}
+
+.form_cadastro h2{
+	margin: 20px;
+}
+
+.form_atualizar,.form_atualizar h2{
+	margin: auto;
+	text-align: center;
+}
+
+.form_atualizar h2{
+	margin: 20px;
+}

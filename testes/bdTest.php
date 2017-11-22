@@ -11,22 +11,23 @@
 							 $this->assertInternalType('array', $bd->login('lucasamaral@gmail.com','arielsoarescosta'));
 				}
 
-				/*public function testLogout() {
+				public function testChecar_codigo() {
 					 		 $bd = new bd("basesirlab", "localhost", "root", "");
-							 $this->assertInternalType('boolean', $bd->logout());
-				}*/
+               $codigo = 134231423;
+							 $this->assertInternalType('boolean', $bd->checar_codigo($codigo));
+				}
 
 			   public function testAdicionar_professor() {
 							 $bd = new bd("basesirlab", "localhost", "root", "");
-
+               $codigo = "111111";
 					 		 $professor = new professor(0, "Lucas Amaral", "lucasamaral@gmail.com1", 2012111049, 'arielsoarescosta');
-							 $this->assertInternalType('array', $bd->adicionar_professor($professor));
+							 $this->assertInternalType('array', $bd->adicionar_professor($professor,$codigo));
 
 							 $professor = new professor(0, "Lucas Amaral", "laucasamaral2@gmail.com1", 123123123, 'arielsoarescosta');
-							 $this->assertInternalType('array', $bd->adicionar_professor($professor));
+							 $this->assertInternalType('array', $bd->adicionar_professor($professor,$codigo));
 
 							 $professor = new professor(0, "Maísa", "maisa@gmail.com", 23123, 'arielsoarescosta');
-							 $this->assertInternalType('array', $bd->adicionar_professor($professor));
+							 $this->assertInternalType('array', $bd->adicionar_professor($professor,$codigo));
 				}
 
 				public function testAtualizar_professor() {

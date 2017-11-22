@@ -19,7 +19,7 @@ $(function(){
 		  data: $(this).serialize(),
 		  dataType: 'json',
 		  success: function(response){
-		  	if (response.status=="ok") {
+		  	if (response.status=="OK") {
 		  		window.location.replace("home.php");
 		  	}else{
 		  		alert("Usuário ou/e Senha incorretos");
