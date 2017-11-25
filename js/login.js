@@ -19,6 +19,7 @@ $(function(){
 		  data: $(this).serialize(),
 		  dataType: 'json',
 		  success: function(response){
+				console.log(response);
 		  	if (response.status=="OK") {
 		  		window.location.replace("home.php");
 		  	}else{

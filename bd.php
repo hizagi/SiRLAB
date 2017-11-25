@@ -120,28 +120,49 @@ class bd
     public function atualizar_professor( $professor )
     {
 
-       if ($professor->getNome()!==null) {
+       if ( !empty($professor->getNome()) ) {
         $SQL = "UPDATE usuarios set nome='" . $professor->getNome() . "' where id='" . $professor->getId() . "'";
         $RES = $this->CON->query($SQL);
        }
-       if ($professor->getSenha()!==null) {
+
+       if(!$RES) {
+           $resposta['status'] = "ERROR" . mysqli_error($this->CON);
+       } else {
+           $resposta['status'] = "OK";
+       }
+
+       if ( !empty($professor->getSenha()) ) {
         $SQL = "UPDATE usuarios set senha='" . md5($professor->getSenha()) . "' where id='" . $professor->getId() . "'";
         $RES = $this->CON->query($SQL);
        }
-       if ($professor->getMatricula()!==null) {
+
+       if(!$RES) {
+           $resposta['status'] = "ERROR" . mysqli_error($this->CON);
+       } else {
+           $resposta['status'] = "OK";
+       }
+       if ( !empty($professor->getMatricula()) ) {
         $SQL = "UPDATE usuarios set matricula='" . $professor->getMatricula() . "' where id='" . $professor->getId() . "'";
         $RES = $this->CON->query($SQL);
        }
-       if ($professor->getEmail()!==null) {
+
+       if(!$RES) {
+           $resposta['status'] = "ERROR" . mysqli_error($this->CON);
+       } else {
+           $resposta['status'] = "OK";
+       }
+       if ( !empty($professor->getEmail()) ) {
         $SQL = "UPDATE usuarios set email='" . $professor->getEmail() . "' where id='" . $professor->getId() . "'";
         $RES = $this->CON->query($SQL);
        }
 
-        if(!$RES) {
-            $resposta['status'] = "ERROR" . mysqli_error($this->CON);
-        } else {
-            $resposta['status'] = "OK";
-        }
+       if(!$RES) {
+           $resposta['status'] = "ERROR" . mysqli_error($this->CON);
+       } else {
+           $resposta['status'] = "OK";
+       }
+
+
 
         return $resposta;
 
